@@ -76,7 +76,9 @@
                 android:textAlignment="center"
                 android:textColor="@color/texto_blanco"
                 android:textSize="20sp"
-                tools:text="@string/nivel"></TextView>
+                tools:text="@string/nivel">
+
+            </TextView>
             <!--El borde inferior del nivel del jugador del juego-->
             <TextView
                 android:layout_width="match_parent"
@@ -87,7 +89,9 @@
                 android:textAlignment="center"
                 android:textColor="@color/texto_blanco"
                 android:textSize="20sp"
-                tools:text="0"></TextView>
+                tools:text="0">
+
+            </TextView>
 
             <!--Paleta de información-->
             <!--Contendrá cuatro botones asi que para que sea resposivo weight4-->
@@ -120,7 +124,9 @@
                         android:text="@string/movimientosTitulo"
                         android:textAlignment="center"
                         android:textColor="@color/texto_blanco"
-                        android:textSize="18sp"></TextView>
+                        android:textSize="18sp">
+
+                    </TextView>
                     <!-- numero de movimientos restantes de movimientos-->
                     <TextView
                         android:id="@+id/movimientosDatos"
@@ -134,7 +140,9 @@
                         android:text="0"
                         android:textAlignment="center"
                         android:textColor="@color/texto_blanco"
-                        android:textSize="18sp"></TextView>
+                        android:textSize="18sp">
+
+                    </TextView>
                 </LinearLayout>
 
                 <!--Paleta de información campo Tiempo-->
@@ -158,7 +166,9 @@
                         android:text="@string/tiempoTitulo"
                         android:textAlignment="center"
                         android:textColor="@color/texto_blanco"
-                        android:textSize="18sp"></TextView>
+                        android:textSize="18sp">
+
+                    </TextView>
                     <!-- numero de movimientos restantes de movimientos-->
                     <TextView
                         android:id="@+id/tiempoDatos"
@@ -169,10 +179,12 @@
                         android:fontFamily="@font/ubuntu_bold"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
-                        android:text="0"
+                        android:text="00:00"
                         android:textAlignment="center"
                         android:textColor="@color/texto_blanco"
-                        android:textSize="18sp"></TextView>
+                        android:textSize="18sp">
+
+                    </TextView>
                 </LinearLayout>
 
                 <!--Paleta de información campo Vidas-->
@@ -189,28 +201,32 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/bg_item_top"
+                        android:background="@drawable/bg_item_top_contraste"
                         android:fontFamily="@font/ubuntu_bold"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
                         android:text="@string/vidasTitulo"
                         android:textAlignment="center"
                         android:textColor="@color/texto_blanco"
-                        android:textSize="18sp"></TextView>
+                        android:textSize="18sp">
+
+                    </TextView>
                     <!-- numero de movimientos restantes de movimientos-->
                     <TextView
                         android:id="@+id/vidasDato"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
-                        android:background="@drawable/bg_item_bottom"
+                        android:background="@drawable/bg_item_bottom_contraste"
                         android:fontFamily="@font/ubuntu_bold"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
                         android:text="0"
                         android:textAlignment="center"
                         android:textColor="@color/texto_blanco"
-                        android:textSize="18sp"></TextView>
+                        android:textSize="18sp">
+
+                    </TextView>
                 </LinearLayout>
 
 
@@ -235,7 +251,9 @@
                         android:text="@string/opcionesTitulo"
                         android:textAlignment="center"
                         android:textColor="@color/texto_blanco"
-                        android:textSize="18sp"></TextView>
+                        android:textSize="18sp">
+
+                    </TextView>
                     <!-- numero de movimientos restantes de movimientos-->
                     <TextView
                         android:id="@+id/opcionesDato"
@@ -249,7 +267,9 @@
                         android:text="0"
                         android:textAlignment="center"
                         android:textColor="@color/texto_blanco"
-                        android:textSize="18sp"></TextView>
+                        android:textSize="18sp">
+
+                    </TextView>
                 </LinearLayout>
             </LinearLayout>
 
