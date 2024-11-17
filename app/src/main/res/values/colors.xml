@@ -7,4 +7,22 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="black_cell">#795548</color> <!-- A deep, rich brown -->
+    <color name="white_cell">#F5F5DC</color> <!-- A light, sandy beige -->
+
+    <color name="constrast_data">#B22222</color> <!-- A reddish-brown clay color -->
+
+    <color name="selected_data">#8B4513</color> <!-- A dark, muddy brown -->
+    <color name="previous_cell">#F0E68C</color> <!-- A light, desert sand color -->
+    <color name="selected_cell">#FF018786</color>
+
+    <color name="msg_background">#A9A9A9</color> <!-- A neutral, stone grey -->
+
+
+    <color name="black_cell_premium">#795548</color> <!-- A deep, rich brown -->
+    <color name="white_cell_premium">#F5F5DC</color> <!-- A light, sandy beige -->
+
+    <color name="constrast_data_premium">#B22222</color> <!-- A reddish-brown clay color -->
+
 </resources>
