@@ -22,12 +22,38 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ubuntu_bold"
-            android:textColor="@color/constrast_data"
-            android:background="@color/msg_background"
+            android:textColor="@color/white"
+            android:background="@color/constrast_data"
+            android:textAlignment="center"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             tools:text="@string/banner_superior">
 
         </TextView>
     </LinearLayout>
+
+
+    <!-- El cuerpo del juegor-->
+    <!-- que vaya justo debajo del banner superior -->
+    <!-- que deje un hueco abajo para el banner inferior -->
+    <ScrollView
+        android:id="@+id/svJuego"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/llBannerSuperior"
+        android:paddingBottom="70dp">
+
+
+    </ScrollView>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -44,8 +70,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ubuntu_bold"
-            android:textColor="@color/constrast_data"
-            android:background="@color/msg_background"
+            android:textColor="@color/white"
+            android:background="@color/constrast_data"
+            android:textAlignment="center"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+
             tools:text="@string/banner_inferior">
 
         </TextView>
