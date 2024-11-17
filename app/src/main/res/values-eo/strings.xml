@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ĉevalo</string>
+    <string name="banner_superior">Supra Banner</string>
+    <string name="banner_inferior">Malsupra Banner</string>
+    <string name="titulo_aplicacion">Ludi ŝakon</string>
+    <string name="nivel">Nivelo</string>
+    <string name="movimientosTitulo">"Movadoj   "</string>
+    <string name="tiempoTitulo">Tempo</string>
+    <string name="vidasTitulo">Vivoj</string>
+    <string name="opcionesTitulo">Opcioj</string>
+</resources>
