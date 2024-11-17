@@ -76,7 +76,18 @@
                 android:background="@drawable/bg_title_top"
                 android:textAlignment="center"
                 android:layout_marginTop="20dp">
-
+            </TextView>
+            <!--El borde inferior del nivel del jugador del juego-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="0"
+                android:textSize="20sp"
+                android:fontFamily="@font/ubuntu_bold"
+                android:textColor="@color/texto_blanco"
+                android:background="@drawable/bg_title_bottom"
+                android:textAlignment="center"
+                android:layout_marginBottom="20dp">
             </TextView>
 
 
