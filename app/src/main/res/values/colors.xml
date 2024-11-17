@@ -15,9 +15,9 @@
 
     <color name="selected_data">#8B4513</color> <!-- A dark, muddy brown -->
     <color name="previous_cell">#F0E68C</color> <!-- A light, desert sand color -->
-    <color name="selected_cell">#FF018786</color>
+    <color name="enabled_cell">#FF018786</color>
 
-    <color name="msg_background">#A9A9A9</color> <!-- A neutral, stone grey -->
+    <color name="msg_background">#C0A9A9A9</color> <!-- A neutral, stone grey con transparencia-->
 
 
     <color name="black_cell_premium">#795548</color> <!-- A deep, rich brown -->
