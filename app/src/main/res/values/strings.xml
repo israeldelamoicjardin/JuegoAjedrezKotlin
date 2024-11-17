@@ -12,8 +12,7 @@
     <string name="tiempoTitulo">Tiempo</string>
     <string name="vidasTitulo">Vidas</string>
     <string name="opcionesTitulo">Opciones</string>
-
-
+    <string name="Instrucciones">Muevel el caballito</string>
 
 
 </resources>

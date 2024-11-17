@@ -273,6 +273,53 @@
                 </LinearLayout>
             </LinearLayout>
 
+
+            <!--Tablero de juego-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TableLayout
+                    android:id="@+id/tbBoard"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <!--Filas y columnas-->
+                    <TableRow android:weightSum="8">
+                        <ImageView
+                            android:id="@+id/ivc07"
+                            android:tag="c07"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:src="@drawable/caballo"
+                            android:background="@color/white_cell"/>
+                        </TableRow>
+
+                </TableLayout>
+               <!-- <LinearLayout
+                    android:layout_width=""
+                    android:layout_height="">
+
+                </LinearLayout>
+                -->
+            </RelativeLayout>
+
+            <!--Instrucciones de juego-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Instrucciones"
+                android:fontFamily="@font/ubunt_light"
+                android:layout_marginTop="12dp"
+                android:textAlignment="center"
+                android:textSize="12sp">
+
+            </TextView>
+
+
+
+
         </LinearLayout>
 
     </ScrollView>
