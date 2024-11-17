@@ -22,7 +22,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ubuntu_bold"
-            tools:text="@string/banner_superior"></TextView>
+            android:textColor="@color/constrast_data"
+            android:background="@color/msg_background"
+            tools:text="@string/banner_superior">
+
+        </TextView>
     </LinearLayout>
 
 
@@ -40,6 +44,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ubuntu_bold"
+            android:textColor="@color/constrast_data"
+            android:background="@color/msg_background"
             tools:text="@string/banner_inferior">
 
         </TextView>
