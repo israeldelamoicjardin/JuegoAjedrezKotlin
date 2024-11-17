@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/llBannerSuperior"
-        android:paddingBottom="70dp">
+        android:paddingBottom="40dp">
 
         <!--los elementos del juego -->
         <LinearLayout
@@ -55,7 +55,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:background="@color/texto_blanco"
                 android:fontFamily="@font/ubuntu_bold"
                 android:textAlignment="center"
@@ -70,7 +70,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/bg_title_top"
                 android:fontFamily="@font/ubuntu_bold"
                 android:textAlignment="center"
@@ -280,21 +280,628 @@
                 android:layout_height="wrap_content">
                 <TableLayout
                     android:id="@+id/tbBoard"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="0dp"
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <!--Filas y columnas-->
                     <TableRow android:weightSum="8">
+                        <!--Primera fila-->
                         <ImageView
                             android:id="@+id/ivc07"
                             android:tag="c07"
+                            android:layout_column="0"
+                            android:onClick="checkCellCLicked"
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="50dp"
-                            android:src="@drawable/caballo"
                             android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc17"
+                            android:tag="c17"
+                            android:layout_column="1"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc27"
+                            android:tag="c27"
+                            android:layout_column="2"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc37"
+                            android:tag="c37"
+                            android:layout_column="3"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc47"
+                            android:tag="c47"
+                            android:layout_column="4"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc57"
+                            android:tag="c57"
+                            android:layout_column="5"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc67"
+                            android:tag="c67"
+                            android:layout_column="6"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc77"
+                            android:tag="c77"
+                            android:layout_column="7"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+
+
                         </TableRow>
+                    <TableRow android:weightSum="8">
+                        <!--Segunda fila-->
+                        <ImageView
+                            android:id="@+id/ivc06"
+                            android:tag="c06"
+                            android:layout_column="0"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc16"
+                            android:tag="c16"
+                            android:layout_column="1"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc26"
+                            android:tag="c26"
+                            android:layout_column="2"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc36"
+                            android:tag="c36"
+                            android:layout_column="3"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc46"
+                            android:tag="c46"
+                            android:layout_column="4"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc56"
+                            android:tag="c56"
+                            android:layout_column="5"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc66"
+                            android:tag="c67"
+                            android:layout_column="6"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc76"
+                            android:tag="c77"
+                            android:layout_column="7"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+
+
+                    </TableRow>
+                    <TableRow android:weightSum="8">
+                        <!--tercera fila-->
+                        <ImageView
+                            android:id="@+id/ivc05"
+                            android:tag="c05"
+                            android:layout_column="0"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc15"
+                            android:tag="c15"
+                            android:layout_column="1"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc25"
+                            android:tag="c25"
+                            android:layout_column="2"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc35"
+                            android:tag="c35"
+                            android:layout_column="3"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc45"
+                            android:tag="c45"
+                            android:layout_column="4"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc55"
+                            android:tag="c55"
+                            android:layout_column="5"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc65"
+                            android:tag="c65"
+                            android:layout_column="6"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc75"
+                            android:tag="c75"
+                            android:layout_column="7"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+
+
+                    </TableRow>
+                    <TableRow android:weightSum="8">
+                        <!--Primera fila-->
+                        <ImageView
+                            android:id="@+id/ivc04"
+                            android:tag="c04"
+                            android:layout_column="0"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc14"
+                            android:tag="c14"
+                            android:layout_column="1"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc24"
+                            android:tag="c24"
+                            android:layout_column="2"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc34"
+                            android:tag="c34"
+                            android:layout_column="3"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc44"
+                            android:tag="c44"
+                            android:layout_column="4"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc54"
+                            android:tag="c54"
+                            android:layout_column="5"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc64"
+                            android:tag="c64"
+                            android:layout_column="6"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc74"
+                            android:tag="c74"
+                            android:layout_column="7"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+
+
+                    </TableRow>
+                    <TableRow android:weightSum="8">
+                        <!--quinta fila-->
+                        <ImageView
+                            android:id="@+id/ivc03"
+                            android:tag="c03"
+                            android:layout_column="0"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc13"
+                            android:tag="c13"
+                            android:layout_column="1"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc23"
+                            android:tag="c23"
+                            android:layout_column="2"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc33"
+                            android:tag="c33"
+                            android:layout_column="3"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc43"
+                            android:tag="c43"
+                            android:layout_column="4"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc53"
+                            android:tag="c53"
+                            android:layout_column="5"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc63"
+                            android:tag="c63"
+                            android:layout_column="6"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc73"
+                            android:tag="c73"
+                            android:layout_column="7"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+
+
+                    </TableRow>
+                    <TableRow android:weightSum="8">
+                        <!--sexta fila-->
+                        <ImageView
+                            android:id="@+id/ivc02"
+                            android:tag="c02"
+                            android:layout_column="0"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc12"
+                            android:tag="c12"
+                            android:layout_column="1"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc22"
+                            android:tag="c22"
+                            android:layout_column="2"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc32"
+                            android:tag="c32"
+                            android:layout_column="3"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc42"
+                            android:tag="c42"
+                            android:layout_column="4"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc52"
+                            android:tag="c52"
+                            android:layout_column="5"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc62"
+                            android:tag="c62"
+                            android:layout_column="6"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc72"
+                            android:tag="c72"
+                            android:layout_column="7"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+
+
+                    </TableRow>
+                    <TableRow android:weightSum="8">
+                        <!--septima fila-->
+                        <ImageView
+                            android:id="@+id/ivc01"
+                            android:tag="c01"
+                            android:layout_column="0"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc11"
+                            android:tag="c11"
+                            android:layout_column="1"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc21"
+                            android:tag="c21"
+                            android:layout_column="2"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc31"
+                            android:tag="c31"
+                            android:layout_column="3"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc41"
+                            android:tag="c41"
+                            android:layout_column="4"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc51"
+                            android:tag="c51"
+                            android:layout_column="5"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc61"
+                            android:tag="c61"
+                            android:layout_column="6"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc71"
+                            android:tag="c71"
+                            android:layout_column="7"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+
+
+                    </TableRow>
+                    <TableRow android:weightSum="8">
+                        <!--OCtava fila-->
+                        <ImageView
+                            android:id="@+id/ivc00"
+                            android:tag="c00"
+                            android:layout_column="0"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc10"
+                            android:tag="c10"
+                            android:layout_column="1"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc20"
+                            android:tag="c20"
+                            android:layout_column="2"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc30"
+                            android:tag="c30"
+                            android:layout_column="3"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc40"
+                            android:tag="c40"
+                            android:layout_column="4"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc50"
+                            android:tag="c50"
+                            android:layout_column="5"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc60"
+                            android:tag="c60"
+                            android:layout_column="6"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/black_cell"/>
+                        <ImageView
+                            android:id="@+id/ivc70"
+                            android:tag="c70"
+                            android:layout_column="7"
+                            android:onClick="checkCellCLicked"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="50dp"
+                            android:background="@color/white_cell"/>
+
+
+                    </TableRow>
+
 
                 </TableLayout>
                <!-- <LinearLayout
