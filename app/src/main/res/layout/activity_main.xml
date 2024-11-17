@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rlScreen"
 
-    android:background="@color/fondo_app"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/fondo_app">
 
 
     <!-- El banner superior-->
@@ -14,19 +14,19 @@
         android:id="@+id/llBannerSuperior"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tvBannerSuperior"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/ubuntu_bold"
-            android:textColor="@color/white"
             android:background="@color/constrast_data"
-            android:textAlignment="center"
+            android:fontFamily="@font/ubuntu_bold"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
             tools:text="@string/banner_superior">
 
         </TextView>
@@ -55,13 +55,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="@string/titulo_aplicacion"
-                android:textSize="40sp"
-                android:fontFamily="@font/ubuntu_bold"
-                android:textColor="@color/constrast_data"
+                android:layout_marginTop="20dp"
                 android:background="@color/texto_blanco"
+                android:fontFamily="@font/ubuntu_bold"
                 android:textAlignment="center"
-                android:layout_marginTop="20dp">
+                android:textColor="@color/constrast_data"
+                android:textSize="40sp"
+                tools:text="@string/titulo_aplicacion">
 
             </TextView>
 
@@ -70,35 +70,33 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="@string/nivel"
-                android:textSize="20sp"
-                android:fontFamily="@font/ubuntu_bold"
-                android:textColor="@color/texto_blanco"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/bg_title_top"
+                android:fontFamily="@font/ubuntu_bold"
                 android:textAlignment="center"
-                android:layout_marginTop="20dp">
-            </TextView>
+                android:textColor="@color/texto_blanco"
+                android:textSize="20sp"
+                tools:text="@string/nivel"></TextView>
             <!--El borde inferior del nivel del jugador del juego-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="0"
-                android:textSize="20sp"
-                android:fontFamily="@font/ubuntu_bold"
-                android:textColor="@color/texto_blanco"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/bg_title_bottom"
+                android:fontFamily="@font/ubuntu_bold"
                 android:textAlignment="center"
-                android:layout_marginBottom="20dp">
-            </TextView>
+                android:textColor="@color/texto_blanco"
+                android:textSize="20sp"
+                tools:text="0"></TextView>
 
             <!--Paleta de información-->
             <!--Contendrá cuatro botones asi que para que sea resposivo weight4-->
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
                 android:layout_marginEnd="18dp"
+                android:orientation="horizontal"
                 android:weightSum="4">
 
                 <!--Paleta de información campo movimientos-->
@@ -112,33 +110,31 @@
                     <!-- texto de movimientos-->
                     <TextView
                         android:id="@+id/movimientosTitulo"
-                        android:text="@string/movimientosTitulo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_item_top"
                         android:fontFamily="@font/ubuntu_bold"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
+                        android:text="@string/movimientosTitulo"
                         android:textAlignment="center"
-                        android:textSize="18sp"
-                        android:background="@drawable/bg_item_top"
                         android:textColor="@color/texto_blanco"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                    </TextView>
+                        android:textSize="18sp"></TextView>
                     <!-- numero de movimientos restantes de movimientos-->
                     <TextView
                         android:id="@+id/movimientosDatos"
-                        android:text="0"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
+                        android:background="@drawable/bg_item_bottom"
                         android:fontFamily="@font/ubuntu_bold"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
+                        android:text="0"
                         android:textAlignment="center"
-                        android:textSize="18sp"
-                        android:background="@drawable/bg_item_bottom"
                         android:textColor="@color/texto_blanco"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                    </TextView>
+                        android:textSize="18sp"></TextView>
                 </LinearLayout>
 
                 <!--Paleta de información campo Tiempo-->
@@ -152,33 +148,31 @@
                     <!-- texto de movimientos-->
                     <TextView
                         android:id="@+id/tiempoTitulo"
-                        android:text="@string/tiempoTitulo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_item_top"
                         android:fontFamily="@font/ubuntu_bold"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
+                        android:text="@string/tiempoTitulo"
                         android:textAlignment="center"
-                        android:textSize="18sp"
-                        android:background="@drawable/bg_item_top"
                         android:textColor="@color/texto_blanco"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                    </TextView>
+                        android:textSize="18sp"></TextView>
                     <!-- numero de movimientos restantes de movimientos-->
                     <TextView
                         android:id="@+id/tiempoDatos"
-                        android:text="0"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
+                        android:background="@drawable/bg_item_bottom"
                         android:fontFamily="@font/ubuntu_bold"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
+                        android:text="0"
                         android:textAlignment="center"
-                        android:textSize="18sp"
-                        android:background="@drawable/bg_item_bottom"
                         android:textColor="@color/texto_blanco"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                    </TextView>
+                        android:textSize="18sp"></TextView>
                 </LinearLayout>
 
                 <!--Paleta de información campo Vidas-->
@@ -192,35 +186,32 @@
                     <!-- texto de movimientos-->
                     <TextView
                         android:id="@+id/vidasTitulo"
-                        android:text="@string/vidasTitulo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_item_top"
                         android:fontFamily="@font/ubuntu_bold"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
+                        android:text="@string/vidasTitulo"
                         android:textAlignment="center"
-                        android:textSize="18sp"
-                        android:background="@drawable/bg_item_top"
                         android:textColor="@color/texto_blanco"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                    </TextView>
+                        android:textSize="18sp"></TextView>
                     <!-- numero de movimientos restantes de movimientos-->
                     <TextView
                         android:id="@+id/vidasDato"
-                        android:text="0"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
+                        android:background="@drawable/bg_item_bottom"
                         android:fontFamily="@font/ubuntu_bold"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
+                        android:text="0"
                         android:textAlignment="center"
-                        android:textSize="18sp"
-                        android:background="@drawable/bg_item_bottom"
                         android:textColor="@color/texto_blanco"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                    </TextView>
+                        android:textSize="18sp"></TextView>
                 </LinearLayout>
-
 
 
                 <!--Paleta de información campo opciones-->
@@ -234,51 +225,37 @@
                     <!-- texto de movimientos-->
                     <TextView
                         android:id="@+id/opcionesTitulo"
-                        android:text="@string/opcionesTitulo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_item_top"
                         android:fontFamily="@font/ubuntu_bold"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
+                        android:text="@string/opcionesTitulo"
                         android:textAlignment="center"
-                        android:textSize="18sp"
-                        android:background="@drawable/bg_item_top"
                         android:textColor="@color/texto_blanco"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                    </TextView>
+                        android:textSize="18sp"></TextView>
                     <!-- numero de movimientos restantes de movimientos-->
                     <TextView
                         android:id="@+id/opcionesDato"
-                        android:text="0"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
+                        android:background="@drawable/bg_item_bottom"
                         android:fontFamily="@font/ubuntu_bold"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
+                        android:text="0"
                         android:textAlignment="center"
-                        android:textSize="18sp"
-                        android:background="@drawable/bg_item_bottom"
                         android:textColor="@color/texto_blanco"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                    </TextView>
+                        android:textSize="18sp"></TextView>
                 </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
 
-
-
     </ScrollView>
-
-
-
-
-
-
-
-
-
-
 
 
     <!-- El banner inferior-->
@@ -286,19 +263,19 @@
         android:id="@+id/llBannerInferior"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true"        >
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tvBannerInferior"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/ubuntu_bold"
-            android:textColor="@color/white"
             android:background="@color/constrast_data"
-            android:textAlignment="center"
+            android:fontFamily="@font/ubuntu_bold"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
 
             tools:text="@string/banner_inferior">
 
