@@ -944,10 +944,11 @@
                         android:layout_height="wrap_content">
 
                     </TextView>
-                    <!--un boton en la ventana de fin de juego-->
+                    <!--un boton en la ventana  de juego-->
                     <TextView
                         android:id="@+id/tvAction"
                         android:layout_width="match_parent"
+                        android:layout_height="40dp"
                         android:layout_marginLeft="24dp"
                         android:layout_marginRight="24dp"
                         android:layout_marginTop="30dp"
@@ -962,9 +963,20 @@
                         android:textColor="@color/white"
                         android:textAlignment="center"
                         android:text="Next"
-                        android:layout_height="40dp">
-
+                        >
                     </TextView>
+                    <!--Cierre del boton en la ventana de juego-->
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="24dp"
+                        android:layout_marginBottom="30dp"
+                        android:background="@drawable/bg_title_bottom"
+                        >
+
+                    </ImageButton>
+
 
                 </LinearLayout>
 
