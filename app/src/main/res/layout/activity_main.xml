@@ -1,7 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlScreen"
+
+    android:background="@color/fondo_app"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+
+    <!-- El banner superior-->
+    <LinearLayout
+        android:id="@+id/llBannerSuperior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/tvBannerSuperior"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_bold"
+            tools:text="@string/banner_superior"></TextView>
+    </LinearLayout>
+
+
+
+    <!-- El banner inferior-->
+    <LinearLayout
+        android:id="@+id/llBannerInferior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"        >
+
+        <TextView
+            android:id="@+id/tvBannerInferior"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_bold"
+            tools:text="@string/banner_inferior">
+
+        </TextView>
+    </LinearLayout>
+
+
+</RelativeLayout>
