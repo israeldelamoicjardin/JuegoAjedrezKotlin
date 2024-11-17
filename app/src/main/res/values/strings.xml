@@ -6,5 +6,7 @@
 
     <string name="titulo_aplicacion">Juega al ajedrez</string>
 
+    <string name="nivel">Nivel</string>
+
 
 </resources>
