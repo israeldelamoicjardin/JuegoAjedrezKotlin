@@ -47,6 +47,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="4dp"
             android:orientation="vertical">
 
             <!--El título del juego-->
@@ -90,13 +91,178 @@
                 android:layout_marginBottom="20dp">
             </TextView>
 
+            <!--Paleta de información-->
+            <!--Contendrá cuatro botones asi que para que sea resposivo weight4-->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="18dp"
+                android:weightSum="4">
+
+                <!--Paleta de información campo movimientos-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <!-- texto de movimientos-->
+                    <TextView
+                        android:id="@+id/movimientosTitulo"
+                        android:text="@string/movimientosTitulo"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/ubuntu_bold"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textAlignment="center"
+                        android:textSize="18sp"
+                        android:background="@drawable/bg_item_top"
+                        android:textColor="@color/texto_blanco"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </TextView>
+                    <!-- numero de movimientos restantes de movimientos-->
+                    <TextView
+                        android:id="@+id/movimientosDatos"
+                        android:text="0"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/ubuntu_bold"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textAlignment="center"
+                        android:textSize="18sp"
+                        android:background="@drawable/bg_item_bottom"
+                        android:textColor="@color/texto_blanco"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </TextView>
+                </LinearLayout>
+
+                <!--Paleta de información campo Tiempo-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <!-- texto de movimientos-->
+                    <TextView
+                        android:id="@+id/tiempoTitulo"
+                        android:text="@string/tiempoTitulo"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/ubuntu_bold"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textAlignment="center"
+                        android:textSize="18sp"
+                        android:background="@drawable/bg_item_top"
+                        android:textColor="@color/texto_blanco"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </TextView>
+                    <!-- numero de movimientos restantes de movimientos-->
+                    <TextView
+                        android:id="@+id/tiempoDatos"
+                        android:text="0"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/ubuntu_bold"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textAlignment="center"
+                        android:textSize="18sp"
+                        android:background="@drawable/bg_item_bottom"
+                        android:textColor="@color/texto_blanco"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </TextView>
+                </LinearLayout>
+
+                <!--Paleta de información campo Vidas-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <!-- texto de movimientos-->
+                    <TextView
+                        android:id="@+id/vidasTitulo"
+                        android:text="@string/vidasTitulo"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/ubuntu_bold"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textAlignment="center"
+                        android:textSize="18sp"
+                        android:background="@drawable/bg_item_top"
+                        android:textColor="@color/texto_blanco"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </TextView>
+                    <!-- numero de movimientos restantes de movimientos-->
+                    <TextView
+                        android:id="@+id/vidasDato"
+                        android:text="0"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/ubuntu_bold"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textAlignment="center"
+                        android:textSize="18sp"
+                        android:background="@drawable/bg_item_bottom"
+                        android:textColor="@color/texto_blanco"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </TextView>
+                </LinearLayout>
 
 
 
-
-
-
-
+                <!--Paleta de información campo opciones-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <!-- texto de movimientos-->
+                    <TextView
+                        android:id="@+id/opcionesTitulo"
+                        android:text="@string/opcionesTitulo"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/ubuntu_bold"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textAlignment="center"
+                        android:textSize="18sp"
+                        android:background="@drawable/bg_item_top"
+                        android:textColor="@color/texto_blanco"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </TextView>
+                    <!-- numero de movimientos restantes de movimientos-->
+                    <TextView
+                        android:id="@+id/opcionesDato"
+                        android:text="0"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/ubuntu_bold"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textAlignment="center"
+                        android:textSize="18sp"
+                        android:background="@drawable/bg_item_bottom"
+                        android:textColor="@color/texto_blanco"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
 
         </LinearLayout>
 
