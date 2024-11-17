@@ -43,6 +43,14 @@
         android:layout_below="@id/llBannerSuperior"
         android:paddingBottom="70dp">
 
+        <!--los elementos del juego -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        </LinearLayout>
+
+
 
     </ScrollView>
 
