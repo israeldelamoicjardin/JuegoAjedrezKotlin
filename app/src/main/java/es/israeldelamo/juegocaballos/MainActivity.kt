@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TableRow
 import androidx.activity.ComponentActivity
+import androidx.core.content.ContextCompat
 
 
 /**
@@ -22,8 +23,51 @@ class MainActivity : ComponentActivity() {
 
         //inicializar juego
         inicializarJuego()
+        //posicionamiento aleatorio del caballo
+        setFirstPosition()
+
 
         }
+
+
+    /**
+     * Para que el juego siempre sea diferente se posiciona inicialmente el caballo en un sitio o
+     * en otro de manera aleatorioa
+     */
+    private fun setFirstPosition() {
+        var x=0
+        var y = 0
+        x = (0..7).random()
+        y = (0..7).random()
+        //con esa posición aleatoria, pinta el caballo
+        selectCell(x,y)
+    }
+
+    /**
+     * Selecciona una celda dada la posición y pinta el caballo en ella
+     * nunca debe ser mayor que el rano 0 ..7
+     * @param x fila
+     * @param y columna
+     */
+    private fun selectCell(x: Int, y: Int) {
+        pintarCaballoEnCelda(x, y, "selected_cell" )
+    }
+
+
+    /**
+     * Dibuja el camballo en la celda dada
+     * @param x
+     * @param y
+     * @param color
+     */
+    private fun pintarCaballoEnCelda(x: Int, y: Int, color: String) {
+        var iv: ImageView = findViewById(resources.getIdentifier("ivc$x$y", "id", packageName))
+        //cambiamos el color de fondo, se referencia mediate ContextCompact
+        iv.setBackgroundColor(ContextCompat.getColor(this, resources.getIdentifier(color, "color", packageName)))
+        //pintamos el caballo directamente asignando el recurso de imagen
+        iv.setImageResource(R.drawable.caballo)
+    }
+
 
     /**
      * Función de inicialización del juego

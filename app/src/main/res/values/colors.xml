@@ -19,6 +19,10 @@
     <color name="constrast_data">#B22222</color> <!-- A reddish-brown clay color -->
 
     <color name="selected_data">#8B4513</color> <!-- A dark, muddy brown -->
+
+
+    <color name="selected_cell">#8B4513</color> <!-- marrón claro -->
+
     <color name="previous_cell">#F0E68C</color> <!-- A light, desert sand color -->
     <color name="enabled_cell">#FF018786</color>
 
