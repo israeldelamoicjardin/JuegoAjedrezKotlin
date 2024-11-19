@@ -82,10 +82,44 @@ class MainActivity : ComponentActivity() {
         var x = posicion.substring(1,2).toInt()
         var y = posicion.substring(2,3).toInt()
 
-        //habra que indicar que se ha pulsado
-        selectCell(x,y)
+        //si ya esta pulsada no hace falta volver a pulsar
+        //primero miramos con checkCell
+        if(checkCell(x,y)){
+            //habra que indicar que se ha pulsado
+            selectCell(x,y)
+        }
+
+
     }
 
+
+    /**
+     * Mira si es un movimiento en l
+     * Mira si la celda esta pulsada anteriormente
+     * si tenía un uno en esa posocion devuelve true
+     * su había un cero en esa posición devuelve un false
+     */
+    private fun checkCell(x: Int, y: Int):Boolean {
+        var checkTrue = false
+
+        var dif_x = x -cellSelected_x
+        var dif_y = y -cellSelected_y
+
+        //comprueba el movimiento en L para el caballo, con valor absoutlo era más corto
+        // computacionalmente más lento
+        if ( dif_x == 1 && dif_y == 2) checkTrue = true
+        if ( dif_x == 1 && dif_y == -2) checkTrue = true
+        if ( dif_x == 2 && dif_y == 1) checkTrue = true
+        if ( dif_x == 2 && dif_y == -1) checkTrue = true
+        if ( dif_x == -1 && dif_y == 2) checkTrue = true
+        if ( dif_x == -2 && dif_y == -2) checkTrue = true
+        if ( dif_x == -2 && dif_y == 1) checkTrue = true
+        if ( dif_x == -2 && dif_y == -1) checkTrue = true
+
+        if (tablero[x][y] == 1) checkTrue = false
+
+        return checkTrue
+    }
 
 
     /**
