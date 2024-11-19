@@ -112,7 +112,7 @@ class MainActivity : ComponentActivity() {
         if ( dif_x == 2 && dif_y == 1) checkTrue = true
         if ( dif_x == 2 && dif_y == -1) checkTrue = true
         if ( dif_x == -1 && dif_y == 2) checkTrue = true
-        if ( dif_x == -2 && dif_y == -2) checkTrue = true
+        if ( dif_x == -1 && dif_y == -2) checkTrue = true
         if ( dif_x == -2 && dif_y == 1) checkTrue = true
         if ( dif_x == -2 && dif_y == -1) checkTrue = true
 
