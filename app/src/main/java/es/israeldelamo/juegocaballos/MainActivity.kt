@@ -208,16 +208,16 @@ class MainActivity : ComponentActivity() {
      */
     private fun borrarOpcionAntigua(x: Int, y: Int) {
         // recogemos una celda
-        var iv : ImageView = findViewById(resources.getIdentifier("ivc$x$y", "id", packageName))
-            if (mirarColor(x,y) =="negra")
-                    iv.setBackgroundColor(ContextCompat.getColor(this,
-                        resources.getIdentifier(colorCeldaNegra, "color", packageName)))
-            else
+        val iv : ImageView = findViewById(resources.getIdentifier("ivc$x$y", "id", packageName))
+        if (mirarColor(x,y) =="negra")
                 iv.setBackgroundColor(ContextCompat.getColor(this,
-                    resources.getIdentifier(colorCeldaBlanca, "color", packageName)))
+                    resources.getIdentifier(colorCeldaNegra, "color", packageName)))
+        else
+            iv.setBackgroundColor(ContextCompat.getColor(this,
+                resources.getIdentifier(colorCeldaBlanca, "color", packageName)))
 
-            if (tablero[x][y]==1 ) iv.setBackgroundColor(ContextCompat.getColor(this,
-                resources.getIdentifier("previos_cell", "color", packageName)))
+        if (tablero[x][y]==1 ) iv.setBackgroundColor(ContextCompat.getColor(this,
+            resources.getIdentifier("previous_cell", "color", packageName)))
 
 
 
@@ -306,7 +306,7 @@ class MainActivity : ComponentActivity() {
      * devuelve el color de una celda en forma de cadena
      * @param x la posición x de la celda a mirar
      * @param y la posición y de la celda a mirar
-     * @return el color de esa celda
+     * @return el color de esa celda como "negra" o "blanca"
      */
     private fun mirarColor(x: Int, y: Int): String {
 
@@ -318,8 +318,8 @@ class MainActivity : ComponentActivity() {
         //si coincide en esa posición
         if ((columnaNegra.contains(x) && columnaNegra.contains(y))
             || (filaNegra.contains(x) && filaNegra.contains(y)))
-            color = "negro"
-        else color = "blanco"
+            color = "negra"
+        else color = "blanca"
 
         return color
 
