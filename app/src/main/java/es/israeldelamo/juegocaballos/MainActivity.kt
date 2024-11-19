@@ -68,6 +68,18 @@ class MainActivity : ComponentActivity() {
             )
         }
 
+    /**
+     * Este evento es llamado desde el layout cuando se pulsa una celda
+     * @param v vista que ha generado el evento
+     */
+
+    fun checkCellCLicked(v: View){
+        //leemos que etiquita tiene para averiguar su posición
+        var posicion = v.getTag().toString()
+        Log.d("MainActivity", "Has pulsado la celda $posicion")
+
+    }
+
 
 
     /**
