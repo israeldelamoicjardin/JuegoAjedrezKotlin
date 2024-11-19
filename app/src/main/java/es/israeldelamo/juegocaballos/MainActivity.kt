@@ -16,6 +16,12 @@ import androidx.core.content.ContextCompat
  * Punto de entrada de la aplicación.
  */
 class MainActivity : ComponentActivity() {
+
+    private var cellSelected_x = 0
+    private var cellSelected_y = 0
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -39,6 +45,11 @@ class MainActivity : ComponentActivity() {
         var y = 0
         x = (0..7).random()
         y = (0..7).random()
+
+        //recordamos las que hemos pintado
+        cellSelected_x = x
+        cellSelected_y = y
+
         //con esa posición aleatoria, pinta el caballo
         selectCell(x,y)
     }
@@ -50,6 +61,13 @@ class MainActivity : ComponentActivity() {
      * @param y columna
      */
     private fun selectCell(x: Int, y: Int) {
+        //como sé cual era la celda anterior pues la he guardado en setFirtPosition antes de llamar
+        // la pinto como usada
+        pintarCaballoEnCelda(cellSelected_x, cellSelected_x, "previous_cell" )
+        //las nueva posición anterior sera justo la que vamos a pintar ahora
+        cellSelected_x = x
+        cellSelected_y = y
+        //ahora pinto la nueva celda
         pintarCaballoEnCelda(x, y, "selected_cell" )
     }
 
