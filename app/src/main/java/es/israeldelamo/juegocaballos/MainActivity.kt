@@ -95,6 +95,10 @@ class MainActivity : ComponentActivity() {
      * @param y columna
      */
     private fun selectCell(x: Int, y: Int) {
+        //señalizamos en la matriz que en esa posición hay un caballo
+        tablero[x][y] = 1
+
+
         //como sé cual era la celda anterior pues la he guardado en setFirtPosition antes de llamar
         // la pinto como usada
         pintarCaballoEnCelda(cellSelected_x, cellSelected_x, "previous_cell" )
