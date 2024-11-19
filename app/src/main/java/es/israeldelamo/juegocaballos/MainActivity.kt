@@ -36,6 +36,12 @@ class MainActivity : ComponentActivity() {
 
     private var numeroOpcionesDisponibles = 0
 
+    /**
+     * los movimientos del usuario hasta terminar
+     */
+    private var moves = 64
+
+
 
     /**
      * Guarda las posiciones x e Y de manera temporal
@@ -166,6 +172,12 @@ class MainActivity : ComponentActivity() {
      * @param y columna
      */
     private fun selectCell(x: Int, y: Int) {
+        // ha pulsado, una posición menos para llenar
+        moves--
+        val tv  =  findViewById<TextView>(R.id.movimientosDatos)
+        tv.text = moves.toString()
+
+
         //señalizamos en la matriz que en esa posición hay un caballo
         tablero[x][y] = 1
 
@@ -184,6 +196,38 @@ class MainActivity : ComponentActivity() {
         pintarCaballoEnCelda(x, y, "selected_cell" )
         // revisamos las posibles opciones de movimiento
         checkPosiblesOpciones(x,y)
+
+        //si aún quedan movimientos por hacer
+        if (moves > 0) {
+                //mirar si hay premio
+            checkNuevoBonus()
+            //mirar si es fin de partida
+           // checkGameOver(x,y)
+        }
+        //else checkPartidaGanada()
+    }
+
+    /**
+     * Tienes bonus, puedes seguir
+     */
+    private fun checkNuevoBonus() {
+        TODO("Not yet implemented")
+    }
+
+    /**
+     * Has ganado la partida, enhorabuena
+     */
+    private fun checkPartidaGanada() {
+        TODO("Not yet implemented")
+    }
+
+
+    /**
+     * Desde una posición dada comprueba si aún quedan movimientos posibles
+     * en función de ello es gameOver o no
+     */
+    private fun checkGameOver(x: Int, y: Int) {
+        TODO("Not yet implemented")
     }
 
     /**
