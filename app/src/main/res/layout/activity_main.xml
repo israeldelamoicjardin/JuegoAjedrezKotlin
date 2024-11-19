@@ -22,14 +22,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/constrast_data"
-            android:fontFamily="@font/ubuntu_bold"
+            android:text="@string/banner_superior"
+            android:textAlignment="center"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            tools:text="@string/banner_superior">
+            android:textColor="@color/white" />
 
-        </TextView>
     </LinearLayout>
 
 
@@ -57,13 +55,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@color/texto_blanco"
-                android:fontFamily="@font/ubuntu_bold"
+                android:fontFamily="@font/ubunt_light"
                 android:textAlignment="center"
-                android:textColor="@color/constrast_data"
-                android:textSize="40sp"
-                tools:text="@string/titulo_aplicacion">
+                android:textColor="@color/fondo_tile"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:text="@string/titulo_aplicacion"/>
 
-            </TextView>
+
 
 
             <!--El nivel del jugador del juego-->
@@ -76,7 +75,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/texto_blanco"
                 android:textSize="20sp"
-                tools:text="@string/nivel">
+                android:text="@string/nivel">
 
             </TextView>
             <!--El borde inferior del nivel del jugador del juego-->
@@ -89,7 +88,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/texto_blanco"
                 android:textSize="20sp"
-                tools:text="0">
+                android:text="0">
 
             </TextView>
 
@@ -1022,7 +1021,7 @@
             android:textAlignment="center"
             android:textColor="@color/white"
 
-            tools:text="@string/banner_inferior">
+            android:text="@string/banner_inferior">
 
         </TextView>
     </LinearLayout>
