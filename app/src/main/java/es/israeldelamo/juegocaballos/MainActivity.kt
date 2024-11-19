@@ -17,9 +17,17 @@ import androidx.core.content.ContextCompat
  */
 class MainActivity : ComponentActivity() {
 
+
+    /**
+     * Guarda las posiciones x e Y de manera temporal
+     */
     private var cellSelected_x = 0
     private var cellSelected_y = 0
 
+    /**
+     * Contiene la matriz del tablero de ajedrez
+     */
+    private lateinit var tablero: Array<IntArray>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,11 +37,37 @@ class MainActivity : ComponentActivity() {
 
         //inicializar juego
         inicializarJuego()
+        //resetear el tablero
+        resetTablero()
+
         //posicionamiento aleatorio del caballo
         setFirstPosition()
 
 
         }
+
+    /**
+     * Deveulve el tablero al estado inicial
+     * cero para ningún caballo
+     * uno para hay un caballo
+     * dos es un bonus
+     * nueve es una opción de movimiento
+     */
+    private fun resetTablero() {
+        tablero = arrayOf(
+            intArrayOf(0,0,0,0,0,0,0,0),
+            intArrayOf(0,0,0,0,0,0,0,0),
+            intArrayOf(0,0,0,0,0,0,0,0),
+            intArrayOf(0,0,0,0,0,0,0,0),
+            intArrayOf(0,0,0,0,0,0,0,0),
+            intArrayOf(0,0,0,0,0,0,0,0),
+            intArrayOf(0,0,0,0,0,0,0,0),
+            intArrayOf(0,0,0,0,0,0,0,0),
+            intArrayOf(0,0,0,0,0,0,0,0),
+            intArrayOf(0,0,0,0,0,0,0,0),
+            )
+        }
+
 
 
     /**
