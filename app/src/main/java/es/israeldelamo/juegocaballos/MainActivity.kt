@@ -77,7 +77,10 @@ class MainActivity : ComponentActivity() {
         //leemos que etiquita tiene para averiguar su posición
         var posicion = v.getTag().toString()
         Log.d("MainActivity", "Has pulsado la celda $posicion")
-
+        // de ese tag vamos a sacar el primer número como x
+        // y de ese tag vamos a sacar el segundo número como y
+        var x = posicion.substring(1,2).toInt()
+        var y = posicion.substring(2,3).toInt()
     }
 
 
