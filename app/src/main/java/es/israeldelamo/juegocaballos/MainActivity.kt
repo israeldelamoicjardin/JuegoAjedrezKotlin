@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TableRow
+import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.core.content.ContextCompat
 
@@ -16,6 +17,24 @@ import androidx.core.content.ContextCompat
  * Punto de entrada de la aplicación.
  */
 class MainActivity : ComponentActivity() {
+
+    /**
+     * El color para la celda negra
+     */
+    private var colorCeldaNegra = "black_cell"
+
+    /**
+     * el color para la celda blanca
+     */
+    private var colorCeldaBlanca = "white_cell"
+
+
+
+    /**
+     *   las que pueden ser en catidad de movimientos
+     */
+
+    private var numeroOpcionesDisponibles = 0
 
 
     /**
@@ -157,8 +176,153 @@ class MainActivity : ComponentActivity() {
         //las nueva posición anterior sera justo la que vamos a pintar ahora
         cellSelected_x = x
         cellSelected_y = y
+
+        //borramos las opciones posibles anteriores
+        borrarOpcionesAntiguas()
+
         //ahora pinto la nueva celda
         pintarCaballoEnCelda(x, y, "selected_cell" )
+        // revisamos las posibles opciones de movimiento
+        checkPosiblesOpciones(x,y)
+    }
+
+    /**
+     * Reinicia en el tablero las posibles opciones de movimiento pintadas anteriormente
+     * es decir cambiamos las tipo 9 a tipo anterior
+     */
+    private fun borrarOpcionesAntiguas() {
+        for (i in 0..7){
+            for (j in 0..7) {
+                if (tablero[i][j] == 9 || tablero[i][j] == 2) {
+                    if (tablero[i][j] == 9) tablero[i][j] = 0
+                    borrarOpcionAntigua(i, j)
+                }
+            }
+        }
+    }
+
+    /**
+     * limpia una celda concreta
+     * @param x posición x de la celda a limpiar
+     * @param y posición y de la celda a limpiar
+     */
+    private fun borrarOpcionAntigua(x: Int, y: Int) {
+        // recogemos una celda
+        var iv : ImageView = findViewById(resources.getIdentifier("ivc$x$y", "id", packageName))
+            if (mirarColor(x,y) =="negra")
+                    iv.setBackgroundColor(ContextCompat.getColor(this,
+                        resources.getIdentifier(colorCeldaNegra, "color", packageName)))
+            else
+                iv.setBackgroundColor(ContextCompat.getColor(this,
+                    resources.getIdentifier(colorCeldaBlanca, "color", packageName)))
+
+            if (tablero[x][y]==1 ) iv.setBackgroundColor(ContextCompat.getColor(this,
+                resources.getIdentifier("previos_cell", "color", packageName)))
+
+
+
+
+    }
+
+    /**
+     * en función de la posición dada y teniendo el cuenta lo que queda libre del tablero, cuenta
+     * los movimientos posibles de un solo salto
+     * @param x posición en x
+     * @param y posición en y
+     * @return cantidad opciones
+     */
+    private fun checkPosiblesOpciones(x: Int, y: Int) : Int {
+        // las que pueden ser
+        numeroOpcionesDisponibles = 0
+        //cuento los posibles y los voy sumando
+        numeroOpcionesDisponibles =
+        checkMovimiento(x,y,1,2)
+        checkMovimiento(x,y,1,-2)
+        checkMovimiento(x,y,2,1)
+        checkMovimiento(x,y,2,-1)
+        checkMovimiento(x,y,-1,2)
+        checkMovimiento(x,y,-1,-2)
+        checkMovimiento(x,y,-2,1)
+        checkMovimiento(x,y,-2,-1)
+
+        //de paso actualizo el campo opciones disponibles del interfaz
+          var tv = findViewById<TextView>(R.id.opcionesDato)
+         tv.text = numeroOpcionesDisponibles.toString()
+
+        //devuelvo la cantidad posible
+        return numeroOpcionesDisponibles
+    }
+
+    /**
+     * True si el movimiento es posible
+     * @param x el parámetro x en el que se encuentr actualmente
+     * @param y el parámetro y en el que se encuentra actualmente
+     * @param i la posición x a la que quiere saltar
+     * @param j la posición y a la que quiere saltar
+     * @return 1 para libre, 0 para ocupado asi puedo hacer una suma total al llamar a esto por
+     * las diferentes celdas
+     */
+    private fun checkMovimiento(x: Int, y: Int, i: Int, j: Int):Int {
+            var opcionX = x + i
+            var opcionY = y + j
+
+            if (opcionX < 8 && opcionY < 8 && opcionX >= 0 && opcionY >= 0){
+                if ((tablero[opcionX][opcionY] == 0)
+                    || (tablero[opcionX][opcionY] == 2)) {
+                    numeroOpcionesDisponibles++
+                    refrescaOpciones(opcionX,opcionY)
+
+                    tablero[opcionX][opcionY] = 9
+
+                }
+            }
+        return 1
+
+    }
+
+
+    /**
+     * Redibula el campo opciones con las opciones nuevas
+     */
+    private fun refrescaOpciones(x: Int, y: Int) {
+
+
+        // vamos a dar un borde extra para que se vea en el tablero
+        var iv : ImageView = findViewById(resources.getIdentifier("ivc$x$y", "id", packageName))
+        // el reborde depende del color en función del color de la propia celda
+        // sera reborde opcionblanca.xml o opcionnegra.xml
+        if (mirarColor(x,y) =="negra"){
+            iv.setBackgroundResource(R.drawable.opcionblanca)
+
+        } else {
+            //debe ser negra, añade blanca
+            iv.setBackgroundResource(R.drawable.opcionnegra)
+        }
+
+    }
+
+
+    /**
+     * devuelve el color de una celda en forma de cadena
+     * @param x la posición x de la celda a mirar
+     * @param y la posición y de la celda a mirar
+     * @return el color de esa celda
+     */
+    private fun mirarColor(x: Int, y: Int): String {
+
+        var color = ""
+        //las columnas negras son estas
+        var columnaNegra = arrayOf(0,2,4,6)
+        //las filas negras son estas
+        var filaNegra = arrayOf(1,3,5,7)
+        //si coincide en esa posición
+        if ((columnaNegra.contains(x) && columnaNegra.contains(y))
+            || (filaNegra.contains(x) && filaNegra.contains(y)))
+            color = "negro"
+        else color = "blanco"
+
+        return color
+
     }
 
 
