@@ -1,5 +1,6 @@
 package es.israeldelamo.juegocaballos
 
+import android.annotation.SuppressLint
 import android.graphics.Point
 import android.os.Bundle
 import android.util.Log
@@ -401,7 +402,7 @@ class MainActivity : ComponentActivity() {
         // las que pueden ser
         numeroOpcionesDisponibles = 0
         //cuento los posibles y los voy sumando
-        numeroOpcionesDisponibles =
+       // numeroOpcionesDisponibles =
         checkMovimiento(x,y,1,2)
         checkMovimiento(x,y,1,-2)
         checkMovimiento(x,y,2,1)
@@ -428,7 +429,7 @@ class MainActivity : ComponentActivity() {
      * @return 1 para libre, 0 para ocupado asi puedo hacer una suma total al llamar a esto por
      * las diferentes celdas
      */
-    private fun checkMovimiento(x: Int, y: Int, i: Int, j: Int):Int {
+    private fun checkMovimiento(x: Int, y: Int, i: Int, j: Int) {
             var opcionX = x + i
             var opcionY = y + j
 
@@ -442,7 +443,7 @@ class MainActivity : ComponentActivity() {
 
                 }
             }
-        return 1
+
 
     }
 
@@ -530,6 +531,7 @@ class MainActivity : ComponentActivity() {
     /**
      * Ajusta el tamaño del tablero
      */
+    @SuppressLint("SuspiciousIndentation")
     private fun setSizeBoard() {
         //recorremos todas las celdas y reasignamos altura y anchura
         var iv: ImageView
