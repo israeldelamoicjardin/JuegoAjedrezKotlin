@@ -47,7 +47,7 @@ class MainActivity : ComponentActivity() {
     /**
      * los movimientos del usuario hasta terminar
      */
-    private var movimientosRestantesParaGanar = 64
+    private var moves = 64
 
     /**
      * los movimientos del usuario hasta terminar en este nivel
@@ -57,7 +57,7 @@ class MainActivity : ComponentActivity() {
     /**
      * Movimientos requeridos hasta recibir un premio
      */
-    private var movimientosParaRecibirBonus = 4
+    private var movesRequired = 4
 
 
     /**
@@ -121,8 +121,8 @@ class MainActivity : ComponentActivity() {
         Log.d("MainActivity", "Has pulsado la celda $posicion")
         // de ese tag vamos a sacar el primer número como x
         // y de ese tag vamos a sacar el segundo número como y
-        var x = posicion.substring(1,2).toInt()
-        var y = posicion.substring(2,3).toInt()
+        val x = posicion.substring(1,2).toInt()
+        val y = posicion.substring(2,3).toInt()
 
         //si ya esta pulsada no hace falta volver a pulsar
         //primero miramos con checkCell
@@ -144,8 +144,8 @@ class MainActivity : ComponentActivity() {
     private fun checkCell(x: Int, y: Int):Boolean {
         var checkTrue = false
 
-        var dif_x = x -cellSelected_x
-        var dif_y = y -cellSelected_y
+        val dif_x = x -cellSelected_x
+        val dif_y = y -cellSelected_y
 
         //comprueba el movimiento en L para el caballo, con valor absoutlo era más corto
         // computacionalmente más lento
@@ -169,10 +169,9 @@ class MainActivity : ComponentActivity() {
      * en otro de manera aleatorioa
      */
     private fun setFirstPosition() {
-        var x = 0
-        var y = 0
-        x = (0..7).random()
-        y = (0..7).random()
+
+        val x = (0..7).random()
+        val y = (0..7).random()
 
         //recordamos las que hemos pintado
         cellSelected_x = x
@@ -190,9 +189,9 @@ class MainActivity : ComponentActivity() {
      */
     private fun selectCell(x: Int, y: Int) {
         // ha pulsado, una posición menos para llenar
-        movimientosRestantesParaGanar--
+        moves--
         val tv  =  findViewById<TextView>(R.id.movimientosDatos)
-        tv.text = movimientosRestantesParaGanar.toString()
+        tv.text = moves.toString()
 
         //dibuja la barra horizontal de bonus en función de los puntos que falten para nuevo bonus
         refrescarBarraBonus()
@@ -201,9 +200,9 @@ class MainActivity : ComponentActivity() {
         // hemos caido en un bonus?
         if (tablero[x][y] == 2) {
             bonus++
-            val tv = findViewById<TextView>(R.id.bonusDato)
+            val tvBonusDato = findViewById<TextView>(R.id.bonusDato)
             //concatena la info de bonus
-            tv.text = "  +" + bonus.toString()
+            tvBonusDato.text = "  +" + bonus.toString()
         }
 
 
@@ -229,7 +228,7 @@ class MainActivity : ComponentActivity() {
         checkPosiblesOpciones(x,y)
 
         //si aún quedan movimientos por hacer
-        if (movimientosRestantesParaGanar > 0) {
+        if (moves > 0) {
                 //mirar si hay premio
             checkNuevoBonus()
             //mirar si es fin de partida
@@ -243,15 +242,16 @@ class MainActivity : ComponentActivity() {
      */
     private fun refrescarBarraBonus() {
             //calculamos la anchura proporcional
-        var movimientos_done = lvlMoves - movimientosRestantesParaGanar
-        var bonus_done = movimientos_done / movimientosParaRecibirBonus
-        var moves_rest = movimientosParaRecibirBonus * (bonus_done)
-        var bonus_grow = width_bonus - moves_rest
+        var moves_done = lvlMoves - moves
+        var bonus_done = moves_done / movesRequired
+        var moves_rest = movesRequired * (bonus_done)
+        var bonus_grow = moves_done - moves_rest
+
 
         //voy a trabajar sobre este view de vNuevoBonus
         var v = findViewById<View>(R.id.vNuevoBonus)
         //el nuevo ancho ser calcula´ra así
-        var widthBonus = ((width_bonus/movimientosParaRecibirBonus) * bonus_grow).toFloat()
+        var widthBonus = ((width_bonus/movesRequired) * bonus_grow).toFloat()
         // recojo el tamaño del view que usaremos como barra
         var height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8f, getResources().getDisplayMetrics()).toInt()
         var width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, widthBonus, getResources().getDisplayMetrics()).toInt()
@@ -274,7 +274,7 @@ class MainActivity : ComponentActivity() {
      * Tienes bonus, puedes seguir
      */
     private fun checkNuevoBonus() {
-       if (movimientosRestantesParaGanar%movimientosParaRecibirBonus == 0) { //en bloques de cada 4
+       if (moves%movesRequired == 0) { //en bloques de cada 4
             //creo un nuevo punto
            var bonusCellX = 0
            var bonusCellY = 0
@@ -522,15 +522,13 @@ class MainActivity : ComponentActivity() {
         for (i in 0..7){
             for (j in 0..7){
                 iv = findViewById(resources.getIdentifier("ivc$i$j", "id", packageName))
-                if (iv != null){
-                    //ahora asignamos los nuevos anchos y largos a cada celda
-                    var height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, heightCell, getResources().getDisplayMetrics()).toInt()
-                    var width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, widthCell, getResources().getDisplayMetrics()).toInt()
+
+                //ahora asignamos los nuevos anchos y largos a cada celda
+                var height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, heightCell, getResources().getDisplayMetrics()).toInt()
+                var width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, widthCell, getResources().getDisplayMetrics()).toInt()
 
                     iv.setLayoutParams(TableRow.LayoutParams(width, height))
-                } else {
-                    Log.e("MainActivity", "Estas accediendo a un null")
-                }
+
 
 
             }
