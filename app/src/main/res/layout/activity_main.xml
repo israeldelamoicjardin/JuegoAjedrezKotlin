@@ -237,6 +237,8 @@
                     android:layout_marginEnd="2dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
+
+
                     <!-- texto de movimientos-->
                     <TextView
                         android:id="@+id/opcionesTitulo"
@@ -250,25 +252,50 @@
                         android:text="@string/opcionesTitulo"
                         android:textAlignment="center"
                         android:textColor="@color/texto_blanco"
-                        android:textSize="18sp">
+                        android:textSize="18sp"/>
 
-                    </TextView>
+
                     <!-- numero de movimientos restantes de movimientos-->
-                    <TextView
-                        android:id="@+id/opcionesDato"
+                    <View
+                        android:id="@+id/vNuevoBonus"
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"
+                        android:background="@color/constrast_data"
+                        android:translationY="-8dp" />
+                    <!-- contenedor datos bonus-->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
                         android:background="@drawable/bg_item_bottom"
-                        android:fontFamily="@font/ubuntu_bold"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@color/texto_blanco"
-                        android:textSize="18sp">
+                        android:translationY="-8dp"
+                        android:orientation="horizontal">
+                    <!-- texto de opciones restantes-->
+                            <TextView
+                                android:id="@+id/opcionesDato"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="2dp"
+                                android:fontFamily="@font/ubuntu_bold"
+                                android:paddingBottom="10dp"
+                                android:text="0"
+                                android:textAlignment="center"
+                                android:textColor="@color/texto_blanco"
+                                android:textSize="18sp"/>
+                                <!-- texto de bonus disponibles-->
+                            <TextView
+                                android:id="@+id/bonusDato"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/ubuntu_bold"
+                                android:paddingBottom="10dp"
+                                android:paddingTop="2dp"
+                                android:text="0"
+                                android:textAlignment="center"
+                                android:textColor="@color/texto_blanco"
+                                android:textSize="18sp"/>
+                    </LinearLayout>
 
-                    </TextView>
                 </LinearLayout>
             </LinearLayout>
 
