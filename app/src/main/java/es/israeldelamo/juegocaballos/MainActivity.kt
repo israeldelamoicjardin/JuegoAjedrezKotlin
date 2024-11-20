@@ -39,8 +39,12 @@ class MainActivity : ComponentActivity() {
     /**
      * los movimientos del usuario hasta terminar
      */
-    private var moves = 64
+    private var movimientosRestantesParaGanar = 64
 
+    /**
+     * Movimientos requeridos hasta recibir un premio
+     */
+    private var movimientosParaRecibirBonus = 4
 
 
     /**
@@ -173,9 +177,9 @@ class MainActivity : ComponentActivity() {
      */
     private fun selectCell(x: Int, y: Int) {
         // ha pulsado, una posición menos para llenar
-        moves--
+        movimientosRestantesParaGanar--
         val tv  =  findViewById<TextView>(R.id.movimientosDatos)
-        tv.text = moves.toString()
+        tv.text = movimientosRestantesParaGanar.toString()
 
 
         //señalizamos en la matriz que en esa posición hay un caballo
@@ -198,7 +202,7 @@ class MainActivity : ComponentActivity() {
         checkPosiblesOpciones(x,y)
 
         //si aún quedan movimientos por hacer
-        if (moves > 0) {
+        if (movimientosRestantesParaGanar > 0) {
                 //mirar si hay premio
             checkNuevoBonus()
             //mirar si es fin de partida
@@ -208,10 +212,41 @@ class MainActivity : ComponentActivity() {
     }
 
     /**
+     * Pinta un bonus en la celda que le digas
+     */
+    private fun pintarBonusCell(bonusCellX: Int, bonusCellY: Int) {
+            val iv : ImageView
+            iv = findViewById(resources.getIdentifier("ivc$bonusCellX$bonusCellY", "id", packageName))
+        //sobre esa celda iv pintamos el bonus
+        iv.setImageResource(R.drawable.bonus)
+
+    }
+
+    /**
      * Tienes bonus, puedes seguir
      */
     private fun checkNuevoBonus() {
-        TODO("Not yet implemented")
+       if (movimientosRestantesParaGanar%movimientosParaRecibirBonus == 0) { //en bloques de cada 4
+            //creo un nuevo punto
+           var bonusCellX = 0
+           var bonusCellY = 0
+
+           var bonusCell = false
+           while (bonusCell == false){
+               //hasta que no encuentre una celda para bonus buena
+               bonusCellX = (0..7).random()
+               bonusCellY = (0..7).random()
+
+               //como esta libre, dejamos de buscar
+                if(tablero[bonusCellX][bonusCellY] == 0) bonusCell = true
+
+           }
+           //le damos el valor de bonus, recuerda 0 libre, 9 opcion y 2 bonus
+           tablero[bonusCellX][bonusCellY] = 2
+           //pintamos el bonus
+           pintarBonusCell(bonusCellX, bonusCellY)
+
+       }
     }
 
     /**
