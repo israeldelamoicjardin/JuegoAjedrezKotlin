@@ -62,6 +62,11 @@ class MainActivity : ComponentActivity() {
 
 
     /**
+     * Mira si es necesario o no comprobar el movimiento, si tenemos bonus podemos hacer saltos directos
+     */
+    private var checkMovement = true
+
+    /**
      * Guarda las posiciones x e Y de manera temporal
      */
     private var cellSelected_x = 0
@@ -125,13 +130,8 @@ class MainActivity : ComponentActivity() {
         val x = posicion.substring(1,2).toInt()
         val y = posicion.substring(2,3).toInt()
 
-        //si ya esta pulsada no hace falta volver a pulsar
-        //primero miramos con checkCell
-        if(checkCell(x,y)){
-            //habra que indicar que se ha pulsado
-            selectCell(x,y)
-        }
-
+        //habra que indicar que se ha pulsado
+        checkCell(x,y)
 
     }
 
@@ -142,26 +142,41 @@ class MainActivity : ComponentActivity() {
      * si tenía un uno en esa posocion devuelve true
      * su había un cero en esa posición devuelve un false
      */
-    private fun checkCell(x: Int, y: Int):Boolean {
-        var checkTrue = false
+    private fun checkCell(x: Int, y: Int) {
+        var checkTrue = true
+       if (checkMovement){
 
-        val dif_x = x -cellSelected_x
-        val dif_y = y -cellSelected_y
+           val dif_x = x -cellSelected_x
+           val dif_y = y -cellSelected_y
 
-        //comprueba el movimiento en L para el caballo, con valor absoutlo era más corto
-        // computacionalmente más lento
-        if ( dif_x == 1 && dif_y == 2) checkTrue = true
-        if ( dif_x == 1 && dif_y == -2) checkTrue = true
-        if ( dif_x == 2 && dif_y == 1) checkTrue = true
-        if ( dif_x == 2 && dif_y == -1) checkTrue = true
-        if ( dif_x == -1 && dif_y == 2) checkTrue = true
-        if ( dif_x == -1 && dif_y == -2) checkTrue = true
-        if ( dif_x == -2 && dif_y == 1) checkTrue = true
-        if ( dif_x == -2 && dif_y == -1) checkTrue = true
 
+           checkTrue = false
+
+           //comprueba el movimiento en L para el caballo, con valor absoutlo era más corto
+           // computacionalmente más lento
+           if ( dif_x == 1 && dif_y == 2) checkTrue = true
+           if ( dif_x == 1 && dif_y == -2) checkTrue = true
+           if ( dif_x == 2 && dif_y == 1) checkTrue = true
+           if ( dif_x == 2 && dif_y == -1) checkTrue = true
+           if ( dif_x == -1 && dif_y == 2) checkTrue = true
+           if ( dif_x == -1 && dif_y == -2) checkTrue = true
+           if ( dif_x == -2 && dif_y == 1) checkTrue = true
+           if ( dif_x == -2 && dif_y == -1) checkTrue = true
+       }
+       else
+       {
+           if (tablero[x][y] != 1) {
+               //nos vale el movimiento
+               bonus--
+               var tvBonusDato = findViewById<TextView>(R.id.bonusDato)
+               tvBonusDato.text = "  +" + bonus.toString()
+              if (bonus==0)   tvBonusDato.text =""
+           }
+       }
         if (tablero[x][y] == 1) checkTrue = false
+        if (checkTrue) selectCell(x,y)
 
-        return checkTrue
+
     }
 
 
@@ -225,6 +240,9 @@ class MainActivity : ComponentActivity() {
 
         //ahora pinto la nueva celda
         pintarCaballoEnCelda(x, y, "selected_cell" )
+
+        //despues de pintar que vuelva a fijar  checkMovemen a true
+        checkMovement = true
         // revisamos las posibles opciones de movimiento
         checkPosiblesOpciones(x,y)
 
@@ -314,10 +332,13 @@ class MainActivity : ComponentActivity() {
     private fun checkGameOver(x: Int, y: Int) {
         if (numeroOpcionesDisponibles == 0) {
           //  //estas en gameOver, a ver si te quedan bonus
-          //  if (bonus== 0) {
+            if (bonus== 0) {
                 //también estas en bonus cero
                 mostrarMensaje( "FIN DE JUEGO","Paquetón",true) //le pasamos el recurso del string finDeJuego
-         //   }
+            } else {
+                //como si tiene bonus puede hacer un salto directo
+                checkMovement = false
+            }
         }
     }
 
@@ -329,24 +350,25 @@ class MainActivity : ComponentActivity() {
      */
     private fun mostrarMensaje(mensaje: String, subtexto: String, esGameOver:Boolean) {
         //busco el layout de mensaje
-       var llMensaje = findViewById<LinearLayout>(R.id.llMensaje)
+        val llMensaje = findViewById<LinearLayout>(R.id.llMensaje)
 
-        var tvMessage = findViewById<TextView>(R.id.tvMessage)
-        var tvTitleMessage = findViewById<TextView>(R.id.tvTitleMesage)
-        var tvScore = findViewById<TextView>(R.id.tvScore)
+        //busco los textviews de ese panel
+        val tvMessage = findViewById<TextView>(R.id.tvMessage)
+        val tvTitleMessage = findViewById<TextView>(R.id.tvTitleMesage)
+        val tvScore = findViewById<TextView>(R.id.tvScore)
 
         llMensaje.visibility = View.VISIBLE
 
         // si es gameover que se vean sus puntos si no el tiempo del nivel
-        var puntos : String
+        val puntos : String
         if (esGameOver) {
             puntos = "Puntos: " + (lvlMoves - moves) + "/" + lvlMoves
 
         } else {
-            var tiempo = "0:00"
+            val tiempo = "0:00"
             puntos = "Tiempo: " + tiempo
         }
-
+        //llenamos los textos
         tvMessage.text = mensaje
         tvTitleMessage.text = subtexto
         tvScore.text = puntos
