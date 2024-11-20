@@ -77,7 +77,9 @@ class MainActivity : ComponentActivity() {
      */
     private lateinit var tablero: Array<IntArray>
 
-
+    /**
+     * Punto de entrada en la aplicación
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -120,7 +122,6 @@ class MainActivity : ComponentActivity() {
      * Este evento es llamado desde el layout cuando se pulsa una celda
      * @param v vista que ha generado el evento
      */
-
     fun checkCellCLicked(v: View){
         //leemos que etiquita tiene para averiguar su posición
         var posicion = v.getTag().toString()
@@ -338,6 +339,23 @@ class MainActivity : ComponentActivity() {
             } else {
                 //como si tiene bonus puede hacer un salto directo
                 checkMovement = false
+                paintAllOptions()
+
+            }
+        }
+    }
+
+    /**
+     * Dibuja todas las opciones que no esten libres
+     */
+
+    private fun paintAllOptions() {
+        //recorremos el tablero completo y en las posiciónes cero les damos un resalto
+        for (i in 0..7){
+            for (j in 0..7) {
+                //todo lo que no sea 1, es decir, bonus, opción o cero
+                if (tablero[i][j] !=1) refrescaOpciones(i, j)
+                if (tablero[i][j] ==0) tablero[i][j]=9
             }
         }
     }
