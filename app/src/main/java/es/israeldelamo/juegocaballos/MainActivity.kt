@@ -252,7 +252,7 @@ class MainActivity : ComponentActivity() {
                 //mirar si hay premio
             checkNuevoBonus()
             //mirar si es fin de partida
-           checkGameOver(x,y)
+           checkGameOver()
         }
         else  mostrarMensaje( "Has ganado","Muy bien",false)
 
@@ -330,17 +330,16 @@ class MainActivity : ComponentActivity() {
      * Desde una posición dada comprueba si aún quedan movimientos posibles
      * en función de ello es gameOver o no
      */
-    private fun checkGameOver(x: Int, y: Int) {
+    private fun checkGameOver() {
         if (numeroOpcionesDisponibles == 0) {
-          //  //estas en gameOver, a ver si te quedan bonus
-            if (bonus== 0) {
+            if (bonus >0){
+                //como si tiene bonus puede hacer un salto directo, no mires si es un movimiento legal o no
+                checkMovement = false
+                //enseñame todas las opciones de salto
+                paintAllOptions()
+            } else {
                 //también estas en bonus cero
                 mostrarMensaje( "FIN DE JUEGO","Paquetón",true) //le pasamos el recurso del string finDeJuego
-            } else {
-                //como si tiene bonus puede hacer un salto directo
-                checkMovement = false
-                paintAllOptions()
-
             }
         }
     }
