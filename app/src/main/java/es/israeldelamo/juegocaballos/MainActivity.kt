@@ -28,7 +28,15 @@ class MainActivity : ComponentActivity() {
      */
     private var colorCeldaBlanca = "white_cell"
 
+    /**
+     * Anchura del bonus, de su barra que crece
+     */
+    private var width_bonus = 0
 
+    /**
+     * Contado hasta el bonus
+     */
+    private var bonus = 0
 
     /**
      *   las que pueden ser en catidad de movimientos
@@ -40,6 +48,11 @@ class MainActivity : ComponentActivity() {
      * los movimientos del usuario hasta terminar
      */
     private var movimientosRestantesParaGanar = 64
+
+    /**
+     * los movimientos del usuario hasta terminar en este nivel
+     */
+    private var lvlMoves = 64
 
     /**
      * Movimientos requeridos hasta recibir un premio
@@ -181,6 +194,20 @@ class MainActivity : ComponentActivity() {
         val tv  =  findViewById<TextView>(R.id.movimientosDatos)
         tv.text = movimientosRestantesParaGanar.toString()
 
+        //dibuja la barra horizontal de bonus en función de los puntos que falten para nuevo bonus
+        refrescarBarraBonus()
+
+
+        // hemos caido en un bonus?
+        if (tablero[x][y] == 2) {
+            bonus++
+            val tv = findViewById<TextView>(R.id.opcionesDato)
+            //concatena la info de bonus
+            tv.text = tv.text.toString() + " " + bonus.toString()
+        }
+
+
+
 
         //señalizamos en la matriz que en esa posición hay un caballo
         tablero[x][y] = 1
@@ -209,6 +236,24 @@ class MainActivity : ComponentActivity() {
            // checkGameOver(x,y)
         }
         //else checkPartidaGanada()
+    }
+
+    /**
+     * En función de los puntos que faltan para bonus, hace crecer la barra horizontal de bonus
+     */
+    private fun refrescarBarraBonus() {
+            //calculamos la anchura proporcional
+        var movimientos_done = lvlMoves - movimientosRestantesParaGanar
+        var bonus_done = movimientos_done / movimientosParaRecibirBonus
+        var moves_rest = movimientosParaRecibirBonus * (bonus_done)
+        var bonus_grow = width_bonus - moves_rest
+
+
+        var v = findViewById<View>(R.id.vNuevoBonus)
+        var widthBonus = ((width_bonus/movimientosParaRecibirBonus) * bonus_grow).toFloat()
+        var height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8f, getResources().getDisplayMetrics()).toInt()
+        var width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, widthBonus, getResources().getDisplayMetrics()).toInt()
+        v.setLayoutParams(TableRow.LayoutParams(width, height))
     }
 
     /**
@@ -464,6 +509,11 @@ class MainActivity : ComponentActivity() {
         val widthCell = (width_dp - lateralMarginDP) / 8
         //como altura y anchura son iguales, solo necesitamos una
         val heightCell = widthCell
+
+
+        //el tamaño del bonus es el doble que el de las celdas
+        width_bonus = widthCell.toInt() * 2
+
 
 
         for (i in 0..7){
