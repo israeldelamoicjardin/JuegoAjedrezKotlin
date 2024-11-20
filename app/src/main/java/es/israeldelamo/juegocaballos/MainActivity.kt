@@ -313,11 +313,11 @@ class MainActivity : ComponentActivity() {
      */
     private fun checkGameOver(x: Int, y: Int) {
         if (numeroOpcionesDisponibles == 0) {
-            //estas en gameOver, a ver si te quedan bonus
-            if (bonus== 0) {
+          //  //estas en gameOver, a ver si te quedan bonus
+          //  if (bonus== 0) {
                 //también estas en bonus cero
-                mostrarMensaje( "pierdes","Paquetón",true) //le pasamos el recurso del string finDeJuego
-            }
+                mostrarMensaje( "FIN DE JUEGO","Paquetón",true) //le pasamos el recurso del string finDeJuego
+         //   }
         }
     }
 
@@ -330,6 +330,7 @@ class MainActivity : ComponentActivity() {
     private fun mostrarMensaje(mensaje: String, subtexto: String, esGameOver:Boolean) {
         //busco el layout de mensaje
        var llMensaje = findViewById<LinearLayout>(R.id.llMensaje)
+
         var tvMessage = findViewById<TextView>(R.id.tvMessage)
         var tvTitleMessage = findViewById<TextView>(R.id.tvTitleMesage)
         var tvScore = findViewById<TextView>(R.id.tvScore)
@@ -346,9 +347,8 @@ class MainActivity : ComponentActivity() {
             puntos = "Tiempo: " + tiempo
         }
 
-
         tvMessage.text = mensaje
-        tvMessage.text = subtexto
+        tvTitleMessage.text = subtexto
         tvScore.text = puntos
 
     }
