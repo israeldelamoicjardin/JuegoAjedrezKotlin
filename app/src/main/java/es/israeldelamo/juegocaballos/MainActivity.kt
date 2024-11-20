@@ -232,9 +232,10 @@ class MainActivity : ComponentActivity() {
                 //mirar si hay premio
             checkNuevoBonus()
             //mirar si es fin de partida
-           // checkGameOver(x,y)
+           checkGameOver(x,y)
         }
-        //else checkPartidaGanada()
+        else  mostrarMensaje( "Has ganado","Muy bien",false)
+
     }
 
     /**
@@ -310,7 +311,45 @@ class MainActivity : ComponentActivity() {
      * en función de ello es gameOver o no
      */
     private fun checkGameOver(x: Int, y: Int) {
-        TODO("Not yet implemented")
+        if (numeroOpcionesDisponibles == 0) {
+            //estas en gameOver, a ver si te quedan bonus
+            if (bonus== 0) {
+                //también estas en bonus cero
+                mostrarMensaje( "pierdes","Paquetón",true) //le pasamos el recurso del string finDeJuego
+            }
+        }
+    }
+
+    /**
+     * Muestra la pantalla de información para nuevo nivel o de game over
+     * @param mensaje la frase a mostrar
+     * @param subtexto segunda frase a mostrar
+     * @param esGameOver si es true, es que es mensaje de gameOver, si es false, es nextleveñ
+     */
+    private fun mostrarMensaje(mensaje: String, subtexto: String, esGameOver:Boolean) {
+        //busco el layout de mensaje
+       var llMensaje = findViewById<LinearLayout>(R.id.llMensaje)
+        var tvMessage = findViewById<TextView>(R.id.tvMessage)
+        var tvTitleMessage = findViewById<TextView>(R.id.tvTitleMesage)
+        var tvScore = findViewById<TextView>(R.id.tvScore)
+
+        llMensaje.visibility = View.VISIBLE
+
+        // si es gameover que se vean sus puntos si no el tiempo del nivel
+        var puntos : String
+        if (esGameOver) {
+            puntos = "Puntos: " + (lvlMoves - moves) + "/" + lvlMoves
+
+        } else {
+            var tiempo = "0:00"
+            puntos = "Tiempo: " + tiempo
+        }
+
+
+        tvMessage.text = mensaje
+        tvMessage.text = subtexto
+        tvScore.text = puntos
+
     }
 
     /**
