@@ -283,17 +283,17 @@
                                 android:textColor="@color/texto_blanco"
                                 android:textSize="18sp"/>
                                 <!-- texto de bonus disponibles-->
-                            <TextView
-                                android:id="@+id/bonusDato"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/ubuntu_bold"
-                                android:paddingBottom="10dp"
-                                android:paddingTop="2dp"
-                                android:text="0"
-                                android:textAlignment="center"
-                                android:textColor="@color/texto_blanco"
-                                android:textSize="18sp"/>
+                        <TextView
+                            android:id="@+id/bonusDato"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/ubuntu_bold"
+                            android:paddingTop="2dp"
+                            android:paddingBottom="10dp"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textColor="@color/texto_blanco"
+                            android:textSize="18sp" />
                     </LinearLayout>
 
                 </LinearLayout>

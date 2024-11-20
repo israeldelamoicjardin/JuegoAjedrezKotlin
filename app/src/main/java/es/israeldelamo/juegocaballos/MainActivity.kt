@@ -201,9 +201,9 @@ class MainActivity : ComponentActivity() {
         // hemos caido en un bonus?
         if (tablero[x][y] == 2) {
             bonus++
-            val tv = findViewById<TextView>(R.id.opcionesDato)
+            val tv = findViewById<TextView>(R.id.bonusDato)
             //concatena la info de bonus
-            tv.text = tv.text.toString() + " " + bonus.toString()
+            tv.text = "  +" + bonus.toString()
         }
 
 
@@ -248,11 +248,14 @@ class MainActivity : ComponentActivity() {
         var moves_rest = movimientosParaRecibirBonus * (bonus_done)
         var bonus_grow = width_bonus - moves_rest
 
-
+        //voy a trabajar sobre este view de vNuevoBonus
         var v = findViewById<View>(R.id.vNuevoBonus)
+        //el nuevo ancho ser calcula´ra así
         var widthBonus = ((width_bonus/movimientosParaRecibirBonus) * bonus_grow).toFloat()
+        // recojo el tamaño del view que usaremos como barra
         var height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8f, getResources().getDisplayMetrics()).toInt()
         var width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, widthBonus, getResources().getDisplayMetrics()).toInt()
+       //cambiamos el parámetro de su ancho y largo, dibujándolo efectivamente
         v.setLayoutParams(TableRow.LayoutParams(width, height))
     }
 
@@ -395,8 +398,8 @@ class MainActivity : ComponentActivity() {
                     || (tablero[opcionX][opcionY] == 2)) {
                     numeroOpcionesDisponibles++
                     refrescaOpciones(opcionX,opcionY)
-
-                    tablero[opcionX][opcionY] = 9
+                    // si es una casilla vacia, entonces se puede marcar como premio
+                   if(tablero[opcionX][opcionY] == 0) tablero[opcionX][opcionY] = 9
 
                 }
             }
