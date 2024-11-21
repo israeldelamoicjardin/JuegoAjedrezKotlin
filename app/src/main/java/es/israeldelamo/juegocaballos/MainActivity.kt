@@ -87,14 +87,60 @@ class MainActivity : ComponentActivity() {
 
         //inicializar juego
         inicializarJuego()
+
+
+        // inicio del juego
+        iniciarJuego()
+
+
+
+
+        }
+
+
+    /**
+     * Control de inicio del juego
+     */
+
+    private fun iniciarJuego() {
         //resetear el tablero
         resetTablero()
+        //limpiar el tablero entero poniendo el fondo correcto a todas ellas
+        limpiarTablero()
 
         //posicionamiento aleatorio del caballo
         setFirstPosition()
 
 
-        }
+    }
+
+
+    /**
+     * Limpia todas las casillas y les da el background correcto
+     */
+
+    private fun limpiarTablero() {
+       //image view temporal
+        var iv : ImageView
+
+        var colorBlack = ContextCompat.getColor(this,
+           resources.getIdentifier(colorCeldaNegra, "color",packageName))
+        var colorWhite = ContextCompat.getColor(this,
+            resources.getIdentifier(colorCeldaBlanca, "color",packageName))
+        //recorremos el tablero
+        for (i in 0..7)
+            for (j in 0..7) {
+                //recupero la celda
+                iv = findViewById(resources.getIdentifier("ivc$i$j", "id", packageName))
+                //reseteo la imagen
+                iv.setImageResource(0)
+                //si al mirar color era negra, fondo negro, si no, fondo blanco
+                if (mirarColor(i,j) == "negra")  iv.setBackgroundColor(colorBlack)
+                     else iv.setBackgroundColor(colorWhite)
+
+            }
+
+    }
 
     /**
      * Deveulve el tablero al estado inicial
@@ -616,6 +662,7 @@ class MainActivity : ComponentActivity() {
 
         }
     }
+
 
 
 }
