@@ -35,15 +35,22 @@ class MainActivity : ComponentActivity() {
      */
     private var cronometro: Runnable = object: Runnable {
         override fun run() {
-                try{
+            try{
+                if (jugando) {
                     tiempoEnSegundos ++
                     actualizarReloj(tiempoEnSegundos)
-                } finally {
-                    mHandler!!.postDelayed(this,1000L)
                 }
+            } finally {
+                mHandler!!.postDelayed(this,1000L)
+            }
         }
     }
 
+    /**
+     * Estado del juego, jugando o no
+     */
+
+    private var jugando = true
 
 
 
@@ -133,12 +140,16 @@ class MainActivity : ComponentActivity() {
      */
 
     private fun iniciarJuego() {
+        jugando = true
         //resetear el tablero
         resetTablero()
         //limpiar el tablero entero poniendo el fondo correcto a todas ellas
         limpiarTablero()
         //posicionamiento aleatorio del caballo
         setFirstPosition()
+
+        resetTime()
+        startTime()
 
 
     }
@@ -439,6 +450,8 @@ class MainActivity : ComponentActivity() {
      * @param esGameOver si es true, es que es mensaje de gameOver, si es false, es nextleveñ
      */
     private fun mostrarMensaje(mensaje: String, subtexto: String, esGameOver:Boolean) {
+        //ya no estas jugado
+        jugando = false
         //busco el layout de mensaje
         val llMensaje = findViewById<LinearLayout>(R.id.llMensaje)
 
@@ -724,4 +737,20 @@ class MainActivity : ComponentActivity() {
                 "${if (segundos < 10)"0" else  ""}$segundos"
 
     }
+
+    /**
+     * Añade como content description de la imagen la descripción de la celda
+     */
+
+    private fun accesibilidad()
+    {
+        var iv: ImageView
+        for (i in 0..7){
+            for (j in 0..7){
+                iv = findViewById(resources.getIdentifier("ivc$i$j", "id", packageName))
+                iv.contentDescription = "Celda $i,$j"
+            }
+        }
+    }
+
 }
