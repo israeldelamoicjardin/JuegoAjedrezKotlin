@@ -3,6 +3,8 @@ package es.israeldelamo.juegocaballos
 import android.annotation.SuppressLint
 import android.graphics.Point
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.util.TypedValue
 import android.view.View
@@ -12,12 +14,38 @@ import android.widget.TableRow
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.core.content.ContextCompat
+import java.util.concurrent.TimeUnit
 
 
 /**
  * Punto de entrada de la aplicación.
  */
 class MainActivity : ComponentActivity() {
+
+    /**
+     * Los segundos pasados
+     */
+    private var tiempoEnSegundos = 0L
+    /**
+     * Con esto podremos controlar el tiempo de la aplicación
+     */
+    private var mHandler: Handler? = null
+    /**
+     * El cronómetro de la partida
+     */
+    private var cronometro: Runnable = object: Runnable {
+        override fun run() {
+                try{
+                    tiempoEnSegundos ++
+                    actualizarReloj(tiempoEnSegundos)
+                } finally {
+                    mHandler!!.postDelayed(this,1000L)
+                }
+        }
+    }
+
+
+
 
     /**
      * El color para la celda negra
@@ -92,7 +120,9 @@ class MainActivity : ComponentActivity() {
         // inicio del juego
         iniciarJuego()
 
-
+        //rest time para luego lanzarlo
+        resetTime()
+        startTime()
 
 
         }
@@ -107,7 +137,6 @@ class MainActivity : ComponentActivity() {
         resetTablero()
         //limpiar el tablero entero poniendo el fondo correcto a todas ellas
         limpiarTablero()
-
         //posicionamiento aleatorio del caballo
         setFirstPosition()
 
@@ -118,14 +147,12 @@ class MainActivity : ComponentActivity() {
     /**
      * Limpia todas las casillas y les da el background correcto
      */
-
     private fun limpiarTablero() {
        //image view temporal
         var iv : ImageView
-
-        var colorBlack = ContextCompat.getColor(this,
+        val colorBlack = ContextCompat.getColor(this,
            resources.getIdentifier(colorCeldaNegra, "color",packageName))
-        var colorWhite = ContextCompat.getColor(this,
+        val colorWhite = ContextCompat.getColor(this,
             resources.getIdentifier(colorCeldaBlanca, "color",packageName))
         //recorremos el tablero
         for (i in 0..7)
@@ -616,7 +643,7 @@ class MainActivity : ComponentActivity() {
     /**
      * Ajusta el tamaño del tablero
      */
-    @SuppressLint("SuspiciousIndentation")
+
     private fun setSizeBoard() {
         //recorremos todas las celdas y reasignamos altura y anchura
         var iv: ImageView
@@ -628,41 +655,73 @@ class MainActivity : ComponentActivity() {
         display.getSize(size)
         //el ancho total de la pantalla es del punto size la parte x
         val width = size.x
-
         // el ancho expresado en dp es el resultado del ancho entre la densidad de la pantalla del telefono
         var width_dp = (width / getResources().getDisplayMetrics().density)
-
         // añadimos un tamaño para el margen lateral
         var lateralMarginDP = 0
-
         val widthCell = (width_dp - lateralMarginDP) / 8
         //como altura y anchura son iguales, solo necesitamos una
         val heightCell = widthCell
-
-
         //el tamaño del bonus es el doble que el de las celdas
         width_bonus = widthCell.toInt() * 2
-
-
 
         for (i in 0..7){
             for (j in 0..7){
                 iv = findViewById(resources.getIdentifier("ivc$i$j", "id", packageName))
-
                 //ahora asignamos los nuevos anchos y largos a cada celda
                 var height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, heightCell, getResources().getDisplayMetrics()).toInt()
                 var width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, widthCell, getResources().getDisplayMetrics()).toInt()
 
-                    iv.setLayoutParams(TableRow.LayoutParams(width, height))
-
-
-
+                iv.setLayoutParams(TableRow.LayoutParams(width, height))
             }
-
-
         }
     }
 
 
+    /**
+     * De parar el reloj
+     */
+    private fun resetTime(){
+        mHandler?.removeCallbacks(cronometro)
+        tiempoEnSegundos = 0
+        // pones los segundos del imageview cronometro a cero
+        var tv = findViewById<TextView>(R.id.tiempoDatos)
+        tv.text = "00:00"
+    }
 
+    /**
+     * Lanza el cronómetro
+     */
+    private fun startTime(){
+        //lanzamos el cronómetro
+        mHandler = Handler(Looper.getMainLooper())
+        cronometro.run()
+    }
+
+    /**
+     * Actualiza el reloj
+     */
+    private fun actualizarReloj(tiempo: Long){
+        //leo el tiempo
+        val tiempoFormateado = getTiempoFormateado(tiempo*1000)
+        //recupero el image View
+        var tv = findViewById<TextView>(R.id.tiempoDatos)
+        //asignación y terminado
+        tv.text = tiempoFormateado
+    }
+
+    /**
+     * de devuelve el tiempo en un formato legible para personas
+     */
+    private fun getTiempoFormateado(ms: Long): String {
+        var milisegundos = ms
+        //menos mal que ya hay una función que cambia milisegundos a otras unidades de tiempo
+        var minutos = TimeUnit.MILLISECONDS.toMinutes(milisegundos)
+        milisegundos -= TimeUnit.MINUTES.toMillis(minutos)
+        var segundos = TimeUnit.MILLISECONDS.toSeconds(milisegundos)
+        //devolvemos el string formateado
+        return "${if (minutos < 10) "0" else  ""}:$minutos:" +
+                "${if (segundos < 10)"0" else  ""}$segundos"
+
+    }
 }
