@@ -53,7 +53,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="2dp"
                 android:background="@color/texto_blanco"
                 android:fontFamily="@font/ubunt_light"
                 android:textAlignment="center"
@@ -82,7 +82,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/bg_title_bottom"
                 android:fontFamily="@font/ubuntu_bold"
                 android:textAlignment="center"
@@ -446,7 +446,7 @@
                             android:background="@color/white_cell"/>
                         <ImageView
                             android:id="@+id/ivc66"
-                            android:tag="c67"
+                            android:tag="c66"
                             android:layout_column="6"
                             android:onClick="checkCellCLicked"
                             android:layout_width="0dp"
@@ -455,7 +455,7 @@
                             android:background="@color/black_cell"/>
                         <ImageView
                             android:id="@+id/ivc76"
-                            android:tag="c77"
+                            android:tag="c76"
                             android:layout_column="7"
                             android:onClick="checkCellCLicked"
                             android:layout_width="0dp"
@@ -1022,7 +1022,7 @@
                 android:padding="4dp"
                 android:layout_marginTop="12dp"
                 android:textAlignment="center"
-                android:textSize="18sp">
+                android:textSize="22sp">
 
             </TextView>
 
