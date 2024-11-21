@@ -150,7 +150,8 @@ class MainActivity : ComponentActivity() {
 
         resetTime()
         startTime()
-
+        // etiquetas con descripción de la posición para accesibilidad
+        accesibilidad()
 
     }
 

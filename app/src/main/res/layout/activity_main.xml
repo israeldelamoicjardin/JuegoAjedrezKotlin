@@ -987,7 +987,6 @@
                         android:background="@drawable/bg_title_top"
                         android:fontFamily="@font/ubunt_light"
                         android:textSize="25dp"
-                        android:onClick="launchAction"
                         android:shadowRadius="8"
                         android:shadowColor="@color/black"
                         android:textColor="@color/white"
