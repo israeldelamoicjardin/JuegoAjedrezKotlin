@@ -36,10 +36,10 @@ class MainActivity : ComponentActivity() {
     private var cronometro: Runnable = object: Runnable {
         override fun run() {
             try{
-                if (jugando) {
+
                     tiempoEnSegundos ++
                     actualizarReloj(tiempoEnSegundos)
-                }
+
             } finally {
                 mHandler!!.postDelayed(this,1000L)
             }
@@ -120,16 +120,14 @@ class MainActivity : ComponentActivity() {
         setContentView(R.layout.activity_main)
 
 
-        //inicializar juego
+        //inicializar juego y dejarlo preparado
         inicializarJuego()
 
 
         // inicio del juego
         iniciarJuego()
 
-        //rest time para luego lanzarlo
-        resetTime()
-        startTime()
+
 
 
         }
@@ -150,8 +148,7 @@ class MainActivity : ComponentActivity() {
 
         resetTime()
         startTime()
-        // etiquetas con descripción de la posición para accesibilidad
-        accesibilidad()
+
 
     }
 
@@ -162,6 +159,7 @@ class MainActivity : ComponentActivity() {
     private fun limpiarTablero() {
        //image view temporal
         var iv : ImageView
+        //recojo las propiedades del color CeldaNegra y Celda Blaca
         val colorBlack = ContextCompat.getColor(this,
            resources.getIdentifier(colorCeldaNegra, "color",packageName))
         val colorWhite = ContextCompat.getColor(this,
